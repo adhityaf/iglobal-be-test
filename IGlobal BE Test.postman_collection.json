@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "e3491b4b-edcb-440e-b6dc-537807661b20",
+		"name": "IGlobal BE Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13223681"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetCourseBySearch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/search?level=beginner&query=script&size=1&page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"search"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "beginner"
+								},
+								{
+									"key": "language",
+									"value": "english",
+									"disabled": true
+								},
+								{
+									"key": "query",
+									"value": "script"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCourseById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnrollCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/enroll/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"enroll",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{user_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "CreateCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Belajar Dart\",\r\n    \"description\": \"Deskripsi Belajar Dart\",\r\n    \"price\": 100000,\r\n    \"level\": \"Beginner\",\r\n    \"language\": \"Indonesia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCourses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCourseById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Fotografi pemandangan alam\",\n    \"description\":\"Deskripsi Fotografi Pemandangan Alam\",\n    \"price\":275000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCourseById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{admin_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"adhityaf@gmail.com\",\n    \"password\": \"12341234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"adhityafadmin\",\n    \"email\": \"adhityafadmin@gmail.com\",\n    \"password\": \"12341234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8080/v1",
+			"type": "string"
+		},
+		{
+			"key": "user_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2ODE5NTIxMTMsImV4cGlyZV9kYXRlIjoiMjAyMy0wNC0yMFQwNzo1NToxMy4xODg1MzA5KzA3OjAwIiwibmFtZSI6ImFkaGl0eWFmIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjoxfQ.kdCAXUCtU5XIZdbxCURIWDpOW2VbS5Y3e6E23YS96o8",
+			"type": "string"
+		},
+		{
+			"key": "admin_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2ODA2MzAzMTUsImV4cGlyZV9kYXRlIjoiMjAyMy0wNC0wNVQwMDo0NToxNS4xMDY3OTc4KzA3OjAwIiwibmFtZSI6ImFkaXQgdXNlciAxIiwicm9sZSI6ImFkbWluIiwidXNlcl9pZCI6Mn0.7affbxm855g9A2xtuZz-flRNwtLRd16BINt5wayMwoc",
+			"type": "string"
+		}
+	]
+}
