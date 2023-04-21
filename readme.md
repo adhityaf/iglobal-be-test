@@ -1,7 +1,7 @@
-# Elemes Backend Test
+# IGlobal Backend Test
 
 ## Table of Contents
-- [Elemes Backend Test](#elemes-backend-test)
+- [IGlobal Backend Test](#iglobal-backend-test)
   - [Table of Contents](#table-of-contents)
   - [List API Endpoint](#list-api-endpoint)
     - [Login](#login)
@@ -42,15 +42,14 @@ Below is the list of features and API endpoints available in this project:
 POST /v1/login
 ```
 #### Request Body
-```javascript
- {
+```java{
    "email"     : string,
    "password"  : string,
 }
 ```
 Example:
 ```javascript
- {
+{
    "email"     : "adit@mail.com",
    "password"  : "12341234"
 }
